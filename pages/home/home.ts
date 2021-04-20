@@ -7,24 +7,28 @@ import { NavController } from 'ionic-angular';
   styleUrls: ['home.css']
 })
 export class HomePage {
-  height: number;
-  weight: number;
-  bmi: number;
-  bmiMessage: string; 
+  tuition: number;
+  payment: number;
+  interest: number;
+  amount: number;
+  monthly:number;
 
-  calculateBMI() {
-    this.bmi = this.weight / (this.height * this.height);
-    this.bmi = parseFloat(this.bmi.toFixed(2));
 
-  if (this.bmi <18.5) {
-    this.bmiMessage = "Underweight";
-  } else if (this.bmi > 18.5 && this.bmi < 25) {
-    this.bmiMessage = "Normal"
-  } else if (this.bmi > 25 && this.bmi < 30) {
-    this.bmiMessage = "Overweight"
-  } else {
-    this.bmiMessage = "Obese"
+  calculateInterest() {
+    this.interest = this.tuition * 0.75 / 100 * this.payment;
+   
   }
 
-}
+  calculateAmount() {
+    this.amount = this.tuition + this.interest;
+   
+  }
+
+  calculateMonthly() {
+    this.monthly = this.amount / this.payment;
+   
+
+
+  }
+
 }
